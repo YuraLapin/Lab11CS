@@ -12,17 +12,17 @@ namespace Lab11Main
     {
         public IComparable[] arr;             
 
-        ArrayList()
+        public ArrayList()
         {
             arr = new IComparable[0];
         }
 
-        ArrayList(in int size)
+        public ArrayList(in int size)
         {
             arr = new IComparable[size];
         }
 
-        ArrayList(in IComparable[] arr)
+        public ArrayList(in IComparable[] arr)
         {
             this.arr = new IComparable[arr.Length];
             for (int i = 0; i < arr.Length; ++i)
@@ -189,6 +189,34 @@ namespace Lab11Main
                 return Array.Equals(arr, obj);
             }
             return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            var stringBuilder = new StringBuilder("[\n");
+            if (arr.Length > 0)
+            {
+                foreach (IComparable ic in arr)
+                {
+                    stringBuilder.Append(ic.ToString() + "\n");
+                }
+                stringBuilder.Append("]");
+            }
+            else
+            {
+                stringBuilder.Append("-\n]");
+            }
+            return stringBuilder.ToString();
+        }
+
+        public void Print()
+        {
+            Console.WriteLine(ToString());
         }
     }
 

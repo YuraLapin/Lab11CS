@@ -5,9 +5,9 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab10Main
+namespace Lab11Main
 {
-    public class Person: IRandomInit, IComparable, ICloneable
+    public class Person: IComparable, ICloneable
     {
         public string name;
         public int age;
@@ -32,25 +32,7 @@ namespace Lab10Main
             this.name = name;
             this.age = age;
             this.height = height;
-        }
-
-        public void RandomInit()
-        {
-            var sb = new StringBuilder();
-            int nameSize = 5;
-            string alphabet = "qwertyuiopasdfghjklzxcvbnm1234567890";
-            for (int i = 0; i < nameSize; ++i)
-            {
-                sb.Append(alphabet[Program.rand.Next(alphabet.Length)]);
-            }
-            name = sb.ToString();
-
-            int maxAge = 200;
-            age = Program.rand.Next(maxAge);
-
-            int maxHeight = 300;
-            height = Program.rand.Next(maxHeight);
-        }
+        }        
 
         public override string ToString()
         {

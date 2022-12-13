@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab10Main
+namespace Lab11Main
 {
-    public class Transport: IRandomInit, IComparable
+    public class Transport: IComparable
     {
         public string name;
         public int power;
@@ -23,32 +23,12 @@ namespace Lab10Main
         {
             this.name = name;
             this.power = maxSpeed;
-        }
-
-        public void RandomInit()
-        {
-            var sb = new StringBuilder();
-            int nameSize = 5;
-            string alphabet = "qwertyuiopasdfghjklzxcvbnm1234567890";
-            for (int i = 0; i < nameSize; ++i)
-            {
-                sb.Append(alphabet[Program.rand.Next(alphabet.Length)]);
-            }
-            name = sb.ToString();
-
-            int maxPower = 1000;
-            power = Program.rand.Next(maxPower);
-        }
+        }        
         
         public override string ToString()
         {
             return name.ToString() + ": power - " + power.ToString();
-        }
-
-        public string ConvertToStringNonVirtual()
-        {
-            return name.ToString() + ": power - " + power.ToString();
-        }
+        }        
 
         public void Print()
         {
@@ -72,6 +52,20 @@ namespace Lab10Main
                 res = string.Compare(this.name, p.name);
             }
             return res;    
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Transport t)
+            {
+                return name.Equals(t.name);
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

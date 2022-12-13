@@ -4,11 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab10Main
+namespace Lab11Main
 {
     public class Automobile: Transport
     {
         public int wheels;
+
+        public Transport BaseTransport
+        {
+            get
+            {
+                return new Transport(name, power);
+            }
+        }
 
         public Automobile(): base()
         {
@@ -18,22 +26,11 @@ namespace Lab10Main
         public Automobile(in string name, in int maxSpeed, in int horsepowers): base(name, maxSpeed)
         {
             this.wheels = horsepowers;
-        }
-
-        new public void RandomInit()
-        {
-            int maxWheels = 9;
-            wheels = Program.rand.Next(maxWheels);
-        }
+        }        
 
         public override string ToString()
         {
             return name.ToString() + ": power - " + power.ToString() + ", wheels - " + wheels.ToString();
-        }
-
-        public string ConvertToStringNonVirual()
-        {
-            return name.ToString() + ": power - " + power.ToString() + ", wheels - " + wheels.ToString();
-        }
+        }        
     }
 }
