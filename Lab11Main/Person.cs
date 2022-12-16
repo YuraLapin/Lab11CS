@@ -39,11 +39,6 @@ namespace Lab11Main
             return name + ": age - " + age + ", height - " + height;
         }
 
-        public void Print()
-        {
-            Console.WriteLine(ToString());
-        }
-
         public static explicit operator Transport(Person obj)
         {
             return new Transport(obj.name, 0);

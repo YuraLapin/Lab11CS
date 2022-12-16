@@ -30,11 +30,6 @@ namespace Lab11Main
             return name.ToString() + ": power - " + power.ToString();
         }        
 
-        public void Print()
-        {
-            Console.WriteLine(this.ToString());
-        }
-
         public static explicit operator Person(Transport obj)
         {
             return new Person(obj.name, 0, 0);
