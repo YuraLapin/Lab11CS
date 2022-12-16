@@ -65,18 +65,7 @@ namespace Lab11Test
             Person expected = new Person("1", 1, 1);
             Person actual = (Person)expected.Clone();
             Assert.Equal(expected, actual);
-        }
-
-        [Fact]
-        public void Print()
-        {
-            var stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
-            (new Person("1", 1, 1)).Print();
-            string actual = stringWriter.ToString();
-            string expected = "1: age - 1, height - 1\r\n";
-            Assert.Equal(expected, actual);
-        }
+        }        
     }
 
     public class TransportTest
@@ -96,17 +85,6 @@ namespace Lab11Test
             string expected = "1: power - 1";
             Assert.Equal(expected, actual);
         }        
-
-        [Fact]
-        public void Print()
-        {
-            var stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
-            (new Transport("1", 1)).Print();
-            string actual = stringWriter.ToString();
-            string expected = "1: power - 1\r\n";
-            Assert.Equal(expected, actual);
-        }
 
         [Fact]
         public void CastToPerson()
