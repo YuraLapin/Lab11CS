@@ -18,12 +18,11 @@ namespace Lab11Main
             for (int i = 0; i < size; ++i)
             {
                 var train = new Train(i.ToString(), i, i);
-                string strKey = train.BaseTransport.ToString();
-                string strValue = train.ToString();
+                string str = train.BaseTransport.ToString();
                 Collection1.AddLast(train.BaseTransport);
-                Collection2.AddLast(strKey);
+                Collection2.AddLast(str);
                 Collection3.Add(train.BaseTransport, train);
-                Collection4.Add(strValue, train);
+                Collection4.Add(str, train);
             }            
         }
     }
