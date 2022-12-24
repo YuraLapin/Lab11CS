@@ -26,7 +26,12 @@ namespace Lab11Main
         public Train(in string name, in int maxSpeed, in int cars) : base(name, maxSpeed)
         {
             this.cars = cars;
-        }        
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
 
         public override string ToString()
         {

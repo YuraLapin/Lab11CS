@@ -10,8 +10,8 @@ namespace Lab11Main
     {
         public LinkedList<Transport> Collection1 = new LinkedList<Transport>();
         public LinkedList<string> Collection2 = new LinkedList<string>();
-        public SortedDictionary<Transport, Train> Collection3 = new SortedDictionary<Transport, Train>();
-        public SortedDictionary<string, Train> Collection4 = new SortedDictionary<string, Train>();
+        public SortedDictionary<Transport, Train> Collection3 = new SortedDictionary<Transport, Train>(new TransportComparer());
+        public SortedDictionary<string, Train> Collection4 = new SortedDictionary<string, Train>(new StringComparer());
 
         public TestCollections(int size)
         {

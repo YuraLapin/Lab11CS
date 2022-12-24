@@ -48,19 +48,5 @@ namespace Lab11Main
             }
             return res;    
         }
-
-        public override bool Equals(object obj)
-        {
-            if (obj is Transport t)
-            {
-                return name.Equals(t.name);
-            }
-            return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
     }
 }
