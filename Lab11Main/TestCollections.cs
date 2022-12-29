@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab11Main
 {
-    internal class TestCollections
+    public class TestCollections
     {
         public LinkedList<Transport> Collection1 = new LinkedList<Transport>();
         public LinkedList<string> Collection2 = new LinkedList<string>();

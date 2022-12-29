@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Lab11Main
 {
-    public class Transport: IComparable
+    public class Transport: IComparable<Transport>, IEquatable<Transport>
     {
         public string name;
         public int power;
@@ -28,25 +28,25 @@ namespace Lab11Main
         public override string ToString()
         {
             return name.ToString() + ": power - " + power.ToString();
-        }        
+        }            
 
-        public static explicit operator Person(Transport obj)
-        {
-            return new Person(obj.name, 0, 0);
-        }        
-
-        public int CompareTo(object obj)
+        public virtual int CompareTo(Transport? t)
         {
             int res = 0;
-            if (obj is Transport c) 
+            if (t != null)
             {
-                res = string.Compare(this.name, c.name);
-            }
-            if (obj is Person p)
-            {
-                res = string.Compare(this.name, p.name);
+                res = string.Compare(this.name, t.name);
             }
             return res;    
+        }
+
+        public bool Equals(Transport? t)
+        {
+            if (t != null)
+            {
+                return string.Equals(this.name, t.name);
+            }
+            return false;
         }
     }
 }

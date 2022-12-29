@@ -44,17 +44,16 @@ namespace Lab11Main
             return new Transport(obj.name, 0);
         }        
 
-        public int CompareTo(object obj)
+        public int CompareTo(object? obj)
         {
             int res = 0;
-            if (obj is Transport c)
+            if (obj != null)
             {
-                res = string.Compare(this.name, c.name);
-            }
-            if (obj is Person p)
-            {
-                res = string.Compare(this.name, p.name);
-            }
+                if (obj is Transport c)
+                {
+                    res = string.Compare(this.name, c.name);
+                }
+            }                
             return res;
         }
 
